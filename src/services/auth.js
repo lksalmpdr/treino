@@ -1,4 +1,4 @@
-const TOKEN_KEY = "@58da2Eav0560";
+const TOKEN_KEY = null;
 
 const isAuthenticated = () => localStorage.getItem(TOKEN_KEY) !== null;
 

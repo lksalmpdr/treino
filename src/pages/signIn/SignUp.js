@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import PageDefault from '../pageDefault/PageDefault';
 import FormField from '../../components/FormField/formfield';
 import Button from '../../components/Button/button';
@@ -18,6 +19,8 @@ const AvisoErro = ({mensagem}) =>{
 }
 
 const SignUp = () =>{
+    let history = useHistory();
+
     const initValues = {
         user : '',
         password : '',
@@ -33,19 +36,25 @@ const SignUp = () =>{
 
     const handleSignUp = async (e) => {
         e.preventDefault();
-        const user = values.user;
+        const email = values.user;
         const password = md5(values.password)
-        if(!user || !password){
-            handleError('Preencha todos os campos');
+        if(!email || !password){
+            handleError('Preciso saber quem é vc... me responda tudo ');
             setErrorCount({'errorCount' : errorCount.errorCount + 1})
         }else{
             setErrorCount({'errorCount' : 0});
             try{
-                const response = await api.post("/sessions", {user, password} );
-                login(response.data.token);
-                this.props.history.push("/app")
+                const response = await api.get(`/users?email=${email}&password=${password}` );
+                if(!response.data){
+                    handleError('Não reconheci você... Talvez sejamos de galáxias diferentes');
+                    setErrorCount({'errorCount' : errorCount.errorCount + 1})
+                }else{
+                    login(response.data[0].token);
+                    history.push("/app")
+                }
             }catch(err){
-                alert('Erro ao autenticar');
+                handleError('Não reconheci você... Talvez sejamos de galáxias diferentes');
+                setErrorCount({'errorCount' : errorCount.errorCount + 1})
             }
         }
       };
@@ -69,9 +78,11 @@ const SignUp = () =>{
                     value={values.password}
                     onChange={handleChange}
                 />
-                <Button type="submit">Entrar</Button>
+                <div className="form-group pull-right">
+                    <Button type="submit">Entrar</Button>
+                    <Button onClick={clearForm}>Limpar</Button>
+                </div>
             </form>
-                <Button onClick={clearForm}>Limpar</Button>
         </PageDefault>
     );
 }

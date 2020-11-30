@@ -1,0 +1,45 @@
+{
+    "users" : [
+        {
+            "email" : "solen@gmail.com",
+            "password" : "92274d2deb811aeacb870cf4b84fb55b",
+            "name" : "Ember Titan",
+            "birthdate" : "1987-08-26 00:00:00.000",
+            "token" : "@58da2Eav0560"
+        },
+        {
+            "email" : "golgi@gmail.com",
+            "password" : "92274d2deb811aeacb870cf4b84fb55b",
+            "name" : "Cal Both",
+            "birthdate" : "1990-04-03 00:00:00.000",
+            "token" : "@58da2Eav0560"
+        }
+    ],
+    
+    "categorias": [
+        {
+          "nome": "Aventura",
+          "descricao": "Obras dignas da Sessão da Tarde",
+          "cor": "#b01c1c",
+          "id": 1
+        },
+        {
+          "nome": "História",
+          "descricao": "Narrando os eventos da nossa história",
+          "cor": "#0f960d",
+          "id": 2
+        },
+        {
+          "nome": "Documentário",
+          "descricao": "Conhecimento e Narrativa",
+          "cor": "#c1bb0b",
+          "id": 3
+        },
+        {
+          "nome": "Música",
+          "descricao": "Anime seu dia com as melhores músicas",
+          "cor": "#de4512",
+          "id": 4
+        }
+      ]
+}
