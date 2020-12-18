@@ -50,7 +50,7 @@ const SignUp = () =>{
                     setErrorCount({'errorCount' : errorCount.errorCount + 1})
                 }else{
                     login(response.data[0].token);
-                    history.push("/app")
+                    history.push(`/app?token${response.data[0].token}&user=${response.data[0].email}`)
                 }
             }catch(err){
                 handleError('Não reconheci você... Talvez sejamos de galáxias diferentes');

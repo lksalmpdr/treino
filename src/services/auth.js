@@ -4,7 +4,7 @@ const isAuthenticated = () => localStorage.getItem(TOKEN_KEY) !== null;
 
 const getToken = () => localStorage.getItem(TOKEN_KEY);
 
-const login = token => {
+const login = (token) => {
   localStorage.setItem(TOKEN_KEY, token);
 };
 const logout = () => {

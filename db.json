@@ -41,5 +41,27 @@
           "cor": "#de4512",
           "id": 4
         }
+      ],
+      "treinos":[
+        {
+          "token": "@58da2Eav0560",
+          "treinos": [
+            {
+              "data" : "2020-12-07",
+              "tipo" : "Força",
+              "categoria" : "ABCD",
+              "foco" : "Peito e Tríceps",
+              "exercicios" : [
+                {
+                  "nome" : "Bench Press",
+                  "series" : 4,
+                  "repeticoes" : 10,
+                  "carga" : 30,
+                  "executado" : true
+                }
+              ]
+            }
+          ]
+        }
       ]
 }
