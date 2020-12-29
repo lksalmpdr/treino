@@ -14,4 +14,4 @@ const getTreinoByToken =(token)=>
         })
 }
 
-export { getTreinoByToken }
+export default { getTreinoByToken }
