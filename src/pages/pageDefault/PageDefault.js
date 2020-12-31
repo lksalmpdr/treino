@@ -18,7 +18,7 @@ const PageDefault = ({children}) =>{
     return(
         <>
             <Header />
-                <Main>
+                <Main className="conteiner">
                     {children}
                 </Main>
             <Footer />

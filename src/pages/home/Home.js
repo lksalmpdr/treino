@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { getToken } from '../../services/auth';
 import treinosRepository from '../../repositories/treinosRepository';
-import md5 from 'md5';
+
+import Card from '../../components/TreinoCard/treinoCard';
 
 const Home = () =>{
     let [token, setToken] = useState([]);
@@ -30,16 +31,17 @@ const Home = () =>{
                         let dayName = days[new Date(treino.data).getDay()];
 
                         return(
-                            <div key={md5(`${treino.data}${treino.foco}`)} className="col-3">
-                                <h4>Treino de {dayName}, {new Date(treino.data).toLocaleDateString('pt-br')}</h4>
-                                <p>Tipo: {treino.tipo}</p>
-                                <p>Foco: {treino.foco}</p>                                
-                            </div>
+                            <Card key={treino.id} data={treino.data} tipo={treino.tipo} foco={treino.foco} dayName={dayName} />
                         );
                     })
                 }
+                </div>
+                <div className="row">
+                    <div className="form-group">
+                        <button className="btn btn-default">Novo Treino</button>
+                    </div>
+                </div>
             </div>
-        </div>
 
     )
 }
