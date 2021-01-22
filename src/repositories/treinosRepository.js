@@ -14,4 +14,16 @@ const getTreinoByToken =(token)=>
         })
 }
 
-export default { getTreinoByToken }
+const getTreinoById = (idTreino)=>
+{
+    return fetch(`${URL_TREINOS}/treinos/id=${idTreino}`)
+    .then(res=>{
+        if(res.ok)
+        {
+            return res.json();
+        }
+        throw new Error('Não foi possível recuperar os dados. ', res.responseText);
+    })
+}
+
+export default { getTreinoByToken, getTreinoById }

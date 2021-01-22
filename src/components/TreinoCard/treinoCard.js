@@ -1,7 +1,7 @@
 import React from 'react';
 import { CardWrapper, DescriptionLabel } from './style';
 import PropTypes from 'prop-types';
-
+import treinosRepository from '../../repositories/treinosRepository';
 
 // const FormFieldWrapper = styled.div`
 //     position: relative;
@@ -126,12 +126,21 @@ import PropTypes from 'prop-types';
 //     suggestions: PropTypes.arrayOf(PropTypes.string),
 //   };
 
+const showTreino = (key)=>
+{
+    treinosRepository.getTreinoById(key)
+    .then(res=>{
+        console.log(res)
+    })
+    .catch(err=>console.log)
+}
 
 
-
-const TreinoCard = ( { data, tipo, foco, dayName } )=>{
+const TreinoCard = ( { idTreino, data, tipo, foco, dayName, cardExpress } )=>{
     return(
-        <CardWrapper className="col-3">
+        <CardWrapper
+            onClick = { cardExpress === "treino" ? ()=>showTreino(idTreino) : null}
+            className="col-3">
             <DescriptionLabel>
                 Treino de {dayName}, {new Date(data).toLocaleDateString('pt-br')}
             </DescriptionLabel>

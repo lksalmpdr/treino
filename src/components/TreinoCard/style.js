@@ -3,10 +3,11 @@ import styled from 'styled-components';
 export const CardWrapper = styled.div`
     position: relative;
     border: solid;
-    border-radius: 40px;
+    border-radius: 15px;
     overflow: hidden;
     width: 100%;
     padding-top: 15px;
+    padding-bottom: 20px;
     margin: 15px 20px 20px 15px,
     @media (max-width: 800px) {
     display: none;

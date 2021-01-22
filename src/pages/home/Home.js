@@ -31,7 +31,15 @@ const Home = () =>{
                         let dayName = days[new Date(treino.data).getDay()];
 
                         return(
-                            <Card key={treino.id} data={treino.data} tipo={treino.tipo} foco={treino.foco} dayName={dayName} />
+                            <Card
+                                key={treino.id}
+                                idTreino={treino.id}
+                                data={treino.data}
+                                tipo={treino.tipo}
+                                foco={treino.foco}
+                                dayName={dayName}
+                                cardExpress="treino"
+                            />
                         );
                     })
                 }
